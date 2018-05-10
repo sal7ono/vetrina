@@ -1,0 +1,72 @@
+{% extends 'vetrinaBundle:Default:layout.html.twig' %}
+{% block title %}
+    <title>{{details.nomvet}}</title>
+{% endblock %}
+{% block body %}
+ <section>
+<div class="container">
+<div class="row">
+<div class="col-sm-3">
+				
+</div>
+<div class="col-sm-9 padding-right">
+<div class="product-details"><!--product-details-->
+<div class="col-sm-5">
+<div class="view-product">
+<img src="{{asset('uploads/' ~details.path)}}"/>
+</div>
+</div>
+<div class="col-sm-7">
+<div class="product-information"><!--/product-information-->
+<h2>{{details.nomvet}}</h2>
+<p>Categorie : {{details.categorie}}</p>
+
+<p><b>Description: </b>{{details.description}} </p>
+{%if details.disponibilite == true %}
+<p><b>Disponibilite: </b>Disponible</p>
+{%elseif details.disponibilite == false %}
+<p><b>Disponibilite: </b>Non disponible</p>
+{%endif%}
+<p><b>Prix: </b>{{details.prix}} €</p>
+<p><b>Prix de location: </b>{{details.prixloc}} €</p>
+
+{%if details.etatVet == 0 %}
+<p><b>Etat: </b>Neuf</p>
+
+{% elseif details.etatVet == 1 %}
+<p><b>Etat: </b>Bon etat</p>
+
+{%elseif details.etatVet == 2 %}
+<p><b>Etat: </b>Mal</p>
+{%endif%}
+<p><b>Marque: </b>{{details.marque}}</p>
+<br/><span>
+     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    {% if app.user.username != details.client %}
+<a href="{{ path('acheter', { 'id' : details.id }) }}" type="button" class="btn btn-fefault cart">
+<i class="fa fa-shopping-cart"></i>Acheter</a>
+<a href="{{ path('louer', { 'id' : details.id  }) }}" type="button" class="btn btn-fefault cart">
+<i class="fa fa-shopping-cart"></i>Louer</a>
+<a href="{{ path('echanger', { 'id' : details.id  }) }}" type="button" class="btn btn-fefault cart">
+<i class="fa fa-shopping-cart"></i>Echanger</a>
+</span>
+{% endif %}
+{% else %}
+ <a href="{{ path('acheter', { 'id' : details.id }) }}" type="button" class="btn btn-fefault cart">
+<i class="fa fa-shopping-cart"></i>Acheter</a>
+<a href="{{ path('louer', { 'id' : details.id }) }}" type="button" class="btn btn-fefault cart">
+<i class="fa fa-shopping-cart"></i>Louer</a>
+<a href="{{ path('echanger', { 'id' : details.id  }) }}" type="button" class="btn btn-fefault cart">
+<i class="fa fa-shopping-cart"></i>Echanger</a>   
+{% endif %}
+</div><!--/product-information-->
+</div>
+</div><!--/product-details-->
+</div>
+</div>
+</div>
+</section>
+	   
+    
+    
+ {% endblock %}

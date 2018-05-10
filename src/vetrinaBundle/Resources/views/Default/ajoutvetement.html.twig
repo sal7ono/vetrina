@@ -1,0 +1,27 @@
+{% extends 'vetrinaBundle:Default:layout.html.twig' %}
+{% block title %}
+    <title>Vetrina | Ajouter vetement</title>
+{% endblock %}
+{% block body %}
+<section id="form">
+    <div class="container">
+        
+	    	<div class="row"> 
+<div class="col-sm-11">                    
+		<div class="login-form">    		
+                            
+                    <h2 class="title text-center"><font color="orange"><B>Ajouter un vetement</B></font></h2>
+                       
+<form action="{{path('ajout')}}" method="post" {{form_enctype(form)}}>
+   
+                                    
+{{ form_widget(form) }}
+
+
+  <button class="btn btn-primary" type="submit" >Ajouter</button>
+           
+       
+         </form>                         
+     </div> </div></div></div></section>
+
+ {% endblock %}

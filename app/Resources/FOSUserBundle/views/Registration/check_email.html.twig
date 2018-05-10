@@ -1,0 +1,22 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+{% if error %}
+   <div class="alert alert-succes" align="center"><b>{{ error.message  }}</b></div>
+{% endif %}
+  <section class="title text-center">
+       <div class="container">
+         <div class="row">
+	<div class="col-sm-12">
+    <div class="col-sm-12 padding-right">
+    <br/>   <br/>  <br/>   
+            
+    <img  src="{{asset('images/email.png')}}"/>
+        
+  <br/><br/>
+    <h4>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</h4>
+ </div> </div> </div> </div></section>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+{% endblock fos_user_content %}

@@ -1,0 +1,106 @@
+
+{% block body %}
+   
+  <section id="cart_items">
+		<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+	
+	
+	     
+	<div class="review-payment">
+           
+				<h2>Demandes de location</h2>
+			</div>
+                                         
+                                        
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">vetement</td>
+						<td></td>
+						<td>Client </td>
+							<td class="price">Prix de location</td>
+                                                        <td> date de retour </td>
+							<td class="total">Choix</td>
+							<td></td>
+						</tr>
+					</thead>
+                                         {% if demandes|length == 0 %}
+                        <tr>
+                            <td colspan="5"><center>Aucune demande de location</center></td>
+                        </tr>
+                    {% endif %}
+					
+                                             {% for demande in demandes %}  
+                                                  {% if demande.vetement.disponibilite== true %}
+                                                 {% if demande.etat== null %}
+                                                     <tbody>
+						<tr>
+							<td class="cart_product">
+								<a href=""><img src="{{asset('uploads/' ~demande.vetement.path)}}" height="75" width="75"></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">{{demande.vetement.nomvet}}</a></h4>
+								<p>Web ID: {{demande.id}}</p>
+							</td>
+							<td>
+							<h4><a href="">{{demande.client.prenom}} {{demande.client.nom}}</a></h4>
+								<p>ID: {{demande.client.id}}</p>
+							
+							
+							</td>
+							<td class="cart_price">
+								<p>{{demande.vetement.prix}} DT</p>
+							</td>
+                                                        <td>{{demande.dateloc|date('d-m-Y')}}</td>
+							<td class="cart_total">
+								
+			<a href="{{path('etatdemandeloc',{'id':demande.id , 'etat': 'valide' }) }}" class="btn btn-info">Confirmer </a>
+			
+			<a href="{{path('etatdemandeloc',{'id':demande.id ,'etat': 'echec'})}}"class="btn btn-danger">Supprimer</a>
+			
+							</td>
+							
+						</tr>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+
+						
+						<tr>
+							<td colspan="4">&nbsp;</td>
+							<td colspan="2">
+								<table class="table table-condensed total-result">
+									
+									
+								</table>
+							</td>
+						</tr>
+					 {% endif %}
+                                                  
+                                             {% endif %}{% endfor %}</tbody>
+				</table>
+					</div>
+			
+	</div>
+					
+				</div>
+			</div></section>
+	  
+          
+    
+    
+    
+  
+{% endblock %}

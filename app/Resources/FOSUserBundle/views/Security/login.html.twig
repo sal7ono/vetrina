@@ -1,0 +1,28 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block title %}
+    <title>Vetrina | Connexion</title>
+{% endblock %}
+{%  block  css %}
+    	<link rel="stylesheet" type="text/css" href="feuilleDeStyle.css" media="all"/>
+  {% endblock %}
+  {% block body %}
+{% block fos_user_content %}
+     {{ include('@FOSUser/Security/login_content.html.twig') }}
+{% endblock fos_user_content %}
+{% endblock %}
+
+{%  block  jquery %}
+   <script type="text/javascript" src="jquery.formvalidation.sjs"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#formulairecontact").formValidation({
+			alias		: "name",
+			required	: "accept",
+			err_list	: true
+		}); 
+               
+	});
+	</script> 
+    
+  {% endblock %}

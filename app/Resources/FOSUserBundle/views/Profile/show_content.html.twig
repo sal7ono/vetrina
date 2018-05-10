@@ -1,0 +1,78 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show">
+    
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2 >Profile</h2>
+						<br/><br/><br/><br/>
+	<div class="panel-heading">
+	<img src="{{asset('images/img.jpg')}}">
+	<br/><br/>
+	 <h4 class="panel-title">
+	
+            <font color="orange">Nom complet: </font>
+         <br/>{{ user.prenom }} {{ user.nom }}
+										
+									</h4> <br/>
+          <h4 class="panel-title">
+	
+            <font color="orange">Date de naissance: </font>
+         <br/>{{ user.datenaiss|date('d/m/Y') }} 
+										
+									</h4> <br/>
+                                                                        
+         <h4 class="panel-title">
+	
+ 
+	<font color="orange"> Sexe:  </font>
+         {% if user.sexe == '0' %}
+        <br/> Homme
+        {% else %}
+              <br/> Femme
+              {% endif %}
+	</h4> <br/>
+          <h4 class="panel-title">
+	
+            <font color="orange">Numéro de telephone: </font>
+         <br/>{{ user.numtel }} 
+										
+									</h4> <br/> 
+        <h4 class="panel-title">
+	
+ 
+	<font color="orange"> {{ 'profile.show.username'|trans }}:  </font>
+         <br/> {{ user.username }}
+	</h4> <br/>
+      
+	<h4 class="panel-title">
+	
+            <font color="orange">{{ 'profile.show.email'|trans }}: </font>
+         <br/>{{ user.email }}
+										
+									</h4>
+        
+									<br/>
+       <h4 class="panel-title">
+	
+            <font color="orange">Adresse: </font>
+         <br/>{{ user.codepostal }} , {{ user.adresse }}
+										
+									</h4> <br/> 
+    <a href="{{ path('fos_user_profile_edit') }}"   class=" btn btn-primary"> Modifier   mon   profile</a>
+       <a href="{{ path('fos_user_change_password') }}"   class=" btn btn-primary">Changer mot de passe</a>
+	</div>
+	</div>
+	</div>
+	
+	  {% render(controller('vetrinaBundle:Vetement:clientvet')) %}
+	</div>
+		</div>
+						
+	
+	</section>                                      
+                                                
+</div>

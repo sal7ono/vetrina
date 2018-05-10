@@ -1,0 +1,61 @@
+
+{% set cats = []  %}
+{% for cat in homme  %} 
+     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                 {% if app.user.username != cat.client %}
+{% set cats = cats|merge([cat])  %}
+{% endif %}
+            {% else %}
+              {% set cats = cats|merge([cat])  %}  
+            {% endif %}
+ {% endfor %}
+ {% for categorie in cats |slice(0,5) %} 
+   
+    {%if categorie.disponibilite == true %}
+   
+        <div class="col-sm-3">
+    <div class="product-image-wrapper">
+     <div class="single-products">
+     <div class="productinfo text-center">
+     <img src="{{asset('uploads/' ~categorie.path)}}" width="300" height="200" />
+     <p><b> {{categorie.nomvet}}</b></p>
+     <h3>Prix d'achat:</h3>
+     <h2>{{categorie.prix}} €</h2>
+     <h3>Prix de location:</h3>   
+      <h2>{{categorie.prixloc}} €</h2>
+     <p> {{categorie.marque}}</p>
+     
+     <a href="{{ path('acheter', { 'id' : categorie.id }) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter</a>
+       <a href="{{ path('louer', { 'id' : categorie.id }) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Louer </a>
+        <a href="{{ path('echanger', { 'id' : categorie.id }) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Echanger</a>
+   
+     </div>
+      <div class="product-overlay">
+      <div class="overlay-content">
+           <p><b> {{categorie.nomvet}}</b></p>
+            <p> {{categorie.description}}</p>
+            
+            <a href="{{ path('acheter', { 'id' : categorie.id }) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Acheter</a>
+        
+            
+        <a href="{{ path('louer', { 'id' : categorie.id }) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Louer </a>
+        <a href="{{ path('echanger', { 'id' : categorie.id }) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Echanger</a>
+     
+           
+       <br/>
+        <a href="{{path('details',{'id':categorie.id})}}" class="btn btn-info ">Plus de details</a>
+        <br/>
+       </div>
+         </div>
+    </div>
+
+   </div>
+  </div>
+    
+    
+    
+    
+   
+     {% endif %}
+               
+    {% endfor %}

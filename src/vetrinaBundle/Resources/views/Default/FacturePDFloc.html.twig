@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Facture Location</title>
+        <link href="{{ absolute_url(asset('css/facture.css')) }}" rel="stylesheet" type="text/css" />
+         <link rel="shortcut icon" href="{{asset('ico/favicon.ico')}}">
+              <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href=" {{asset('css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href=" {{asset('css/prettyPhoto.css')}}" rel="stylesheet">
+    <link href=" {{asset('css/price-range.css')}}" rel="stylesheet">
+    <link href=" {{asset('css/animate.css')}}" rel="stylesheet">
+    <link href=" {{asset('css/main.css'  )}}" rel="stylesheet">
+    <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
+    </head>
+    <body>
+        <br/>
+        <img src="{{absolute_url(asset('images/home/logo.png'))}}" >
+            <br/>
+        <table id="enTete">
+            <tr>
+              
+                <td colspan="1"><h2 >Facture de location de vetement</h2></td>
+     
+                             
+             
+            </tr>
+             <br/> <br/>
+            <tr align='center'>
+                <td width="80">Page</td>
+                <td width="100">Date de livraison</td>
+                <td width="100">Veuillez retourner avant</td>
+                <td width="120">Ref</td>
+            </tr>
+            
+            <tr align='center'>
+                <td class="color">1</td>
+                <td class="color">{{ demandes.Livraison.DateLiv|date('d-m-Y') }}</td>
+                 <td class="color">{{ demandes.dateloc|date('d-m-Y') }}</td>
+                <td class="color">{{demandes.Livraison.id}}</td>
+            </tr>
+        </table>
+        <br/><br/>
+        
+        
+        <table id="entity">
+            <tr>
+                <td></td>
+                <td width="280">Nom de vetement</td>
+                
+                <td width="100">Prix de location</td>
+                <td width="105">prix+tva</td>
+                 <td width="105"></td>
+            </tr>
+                
+                <tr>
+                    <td> <img src="{{asset('uploads/' ~demandes.vetement.path)}}" height="50" width="50"> </td>
+                    <td class="color">{{demandes.vetement.nomvet}}</td>
+                    <td class="color">{{demandes.vetement.prixloc}} € </td>
+                    <td class="color">{{demandes.vetement.prixloc|tva}} €</td>
+                  
+                   
+                </tr>
+                    
+                   
+                        
+        </table>
+                        <br/>
+     <span class="color strong">Adresse de livraison : </span>{{demandes.client.codepostal}}, {{demandes.client.adresse}}
+     <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>
+     <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>
+      <br/>    <br/>    <br/>    <br/>    <br/>  <br/>    <br/>     
+        <footer id="footer"><!--Footer-->
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <p class="text-center">Copyright © {{"now"|date('Y')}} Vetrina Inc. Tous les droits sont  reservés.</p>
+                
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+    </body>
+</<html>

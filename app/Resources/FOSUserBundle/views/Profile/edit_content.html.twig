@@ -1,0 +1,45 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<section id="form">
+    <div class="container">
+        
+	    	<div class="row"> 
+<div class="col-sm-11">                    
+		<div class="login-form">    		
+                            
+                    <h2 class="title text-center"><font color="orange"><B>Modifier mon profile</B></font></h2>
+                       
+ <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST">
+   
+<label for="nom">Nom</label>
+       {{ form_widget(form.nom,{'attr': {'class': 'form-control'} }) }}
+       <label for="prenom">Prenom</label>
+       {{ form_widget(form.prenom,{'attr': {'class': 'form-control'} }) }}
+        <label for="username">Nom d'utilisateur</label>
+       {{ form_widget(form.username,{'attr': {'class': 'form-control'} }) }}
+       <label for="email">Adresse électronique</label>
+       {{ form_widget(form.email,{'attr': {'class': 'form-control'} }) }}
+      <label for="datenaiss">Date de naissance</label>
+       {{ form_widget(form.datenaiss,{'attr': {'class': 'form-control'} }) }}
+       <label for="sexe">Sexe</label>
+       {{ form_widget(form.sexe,{'attr': {'class': 'form-control'} }) }}
+       
+     
+       
+       <label for="numtel">Numéro de telephone</label>
+       {{ form_widget(form.numtel,{'attr': {'class': 'form-control'} }) }}
+       <label for="adresse">Adresse</label>
+       {{ form_widget(form.adresse,{'attr': {'class': 'form-control'} }) }}
+       <label for="codepostal">Code postale</label>
+       {{ form_widget(form.codepostal,{'attr': {'class': 'form-control'} }) }}
+       
+    
+
+       <label for="password">Mot de passe</label>
+       {{ form_widget(form.current_password,{'attr': {'class': 'form-control'} }) }}
+
+    <div class="form-group col-md-12">
+        <button class="btn btn-default" type="submit" >{{ 'profile.edit.submit'|trans }}</button>
+    </div>
+         </form>                         
+</div> </div></div> </div></section>
+

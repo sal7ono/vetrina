@@ -1,0 +1,22 @@
+ {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+
+                        
+                        <div class="panel-group category-products"><!--category-productsr-->
+                            <div class="panel panel-default">
+
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h2>Bienvenue </h2>
+                                    <h4 class="text-center">
+                                   
+                                        <a href="{{ path('fos_user_profile_show') }}">
+                                         <br/> <br/>   
+                                      Bonjour<br/><br/>  {{client.prenom}} {{client.nom}}
+                                        </a>
+                                    </h4>
+                                        <br/> <br/>
+                                </div>
+ </div> </div> 
+                                        {%endif %}

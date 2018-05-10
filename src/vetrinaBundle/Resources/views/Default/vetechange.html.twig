@@ -1,0 +1,18 @@
+<form action="{{ path('panierech')}}" method="post">
+    <select name="id" value='id' size="1" required="true">
+        {%if vetement|length !=0 %}
+        {% for vet in vetement %}
+            {% if vet.disponibilite == true %}
+<option value="{{vet.id}}">{{vet.nomvet}}</option>
+ {% endif %}
+	{% endfor %}
+         
+           
+        </select>
+        
+         <td><button type="submit" class="btn btn-info">Valider</button></td>
+          {% else %}
+         <option value="0">Aucun vetement</option> 
+          </select>
+          {% endif %} 
+</form>

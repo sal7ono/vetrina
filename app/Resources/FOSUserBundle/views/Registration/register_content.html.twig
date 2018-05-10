@@ -1,0 +1,49 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<section id="form"><!--form-->
+		<div class="container">
+                         <h2 class="text-center"><font color="orange">Créer un compte</font></h2>
+			<div class="row">
+                       
+<div class="col-md-6 col-md-offset-2">
+     
+<div class="signup-form">
+   
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+<label for="nom">Nom</label>
+       {{ form_widget(form.nom,{'attr': {'class': 'form-control'} }) }}
+       <label for="prenom">Prenom</label>
+       {{ form_widget(form.prenom,{'attr': {'class': 'form-control'} }) }}
+        <label for="username">Nom d'utilisateur</label>
+       {{ form_widget(form.username,{'attr': {'class': 'form-control'} }) }}
+       <label for="email">Adresse électronique</label>
+       {{ form_widget(form.email,{'attr': {'class': 'form-control'} }) }}
+      <label for="datenaiss">Date de naissance</label>
+       {{ form_widget(form.datenaiss,{'attr': {'class': 'form-control'} }) }}
+       <label for="sexe">Sexe</label>
+       {{ form_widget(form.sexe,{'attr': {'class': 'form-control'} }) }}
+       
+     
+       
+       <label for="numtel">Numéro de telephone</label>
+       {{ form_widget(form.numtel, { 'type':'number' },{'attr': {'class': 'form-control'} }) }}
+       <label for="adresse">Adresse</label>
+       {{ form_widget(form.adresse,{'attr': {'class': 'form-control'} }) }}
+       <label for="codepostal">Code postale</label>
+       {{ form_widget(form.codepostal, { 'type':'number' },{'attr': {'class': 'form-control'} }) }}
+       
+    
+
+       <label for="password">Mot de passe</label>
+       {{ form_widget(form.plainPassword.first,{'attr': {'class': 'form-control'} }) }}
+        <label for="password">Répeter votre mot de passe</label>
+       {{ form_widget(form.plainPassword.second,{'attr': {'class': 'form-control'} }) }}
+                          
+
+    <div>
+        <button type="submit"   class="btn btn-default" >Créer un compte</button>
+    </div>
+       </div>
+       </div>   
+		</div>
+	</section>
+{{ form_end(form) }}

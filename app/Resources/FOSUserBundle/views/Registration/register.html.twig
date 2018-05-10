@@ -1,0 +1,26 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block title %}
+    <title>Vetrina | Creer un compte</title>
+{% endblock %}
+{%  block  css %}
+    	<link rel="stylesheet" type="text/css" href="feuilleDeStyle.css" media="all"/>
+  {% endblock %}
+
+{% block fos_user_content %}
+{% include "@FOSUser/Registration/register_content.html.twig" %}
+{% endblock fos_user_content %}
+{%  block  jquery %}
+   <script type="text/javascript" src="jquery.formvalidation.sjs"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#formulairecontact").formValidation({
+			alias		: "name",
+			required	: "accept",
+			err_list	: true
+		}); 
+               
+	});
+	</script> 
+    
+  {% endblock %}

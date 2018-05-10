@@ -1,0 +1,65 @@
+{% extends 'vetrinaBundle:Default:layout.html.twig' %}
+{% block title %}
+    <title>Vetrina | login</title>
+{% endblock %}
+{%  block  css %}
+    	<link rel="stylesheet" type="text/css" href="feuilleDeStyle.css" media="all"/>
+  {% endblock %}
+{% block body %}
+  <section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+						<h2>Connexion</h2>
+						<form action="#">
+							
+							<input type="email" placeholder="Adresse Email " required="true" mask="email" />
+							<input type="password" placeholder="mot de passe" required="true"  />
+							<span>
+								<input type="checkbox" class="checkbox"> 
+								Laisser connecté
+							</span>
+							<button type="submit" class="btn btn-default">Connexion</button>
+						</form>
+					</div><!--/login form-->
+				</div>
+				<div class="col-sm-1">
+					<h2 class="or">OU</h2>
+				</div>
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>Créer un compte!</h2>
+                                                 <form action="#">
+						<input type="text" placeholder="Nom" required="true" />
+						<input type="text" placeholder="Prenom" required="true" />
+						<input type="email" placeholder="Adresse électronique"  required="true" mask="email" />
+						<input type="Date" placeholder="date de naissence" required="true" />
+						<input type="text" placeholder="numero de telephone" required="true" />
+							<input type="text" placeholder="Adresse" required="true" />
+							<input type="text" placeholder="Ville" required="true" />
+							<input type="text" placeholder="Code postale" required="true" />
+							<input type="password" placeholder="mot de passe" required="true" />
+							<button type="submit" class="btn btn-default">Créer un compte</button>
+						 
+						</form>
+					</div><!--/sign up form-->
+				</div>
+			</div>   
+		</div>
+	</section><!--/form-->
+{% endblock %}
+{%  block  jquery %}
+   <script type="text/javascript" src="jquery.formvalidation.sjs"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#formulairecontact").formValidation({
+			alias		: "name",
+			required	: "accept",
+			err_list	: true
+		}); 
+               
+	});
+	</script> 
+    
+  {% endblock %}

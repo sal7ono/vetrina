@@ -1,0 +1,92 @@
+
+{% extends 'vetrinaBundle:Default:layout.html.twig' %}
+{% block title %}
+    <title>Vetrina | Panier Echange</title>
+{% endblock %}
+{% block body %}
+   
+    <section id="cart_items">
+		<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+	
+	 {% for flashMessage in app.session.flashbag.get('Erreur') %}
+                <div class="alert alert-error">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+	
+	<div class="review-payment">
+				<h2>Panier d'echange</h2>
+			</div>
+
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">vetement</td>
+						<td></td>
+							<td class="price"></td>
+							
+                                                      
+							<td class="total"></td>
+                                                        <td class="quantity">Echanger avec</td>
+							<td></td>
+						</tr>
+					</thead>
+                                          {% if produits|length == 0 %}
+                        <tr>
+                            <td colspan="5"><center>Aucun vetement dans votre panier</center></td>
+                        </tr>
+                    {% endif %}
+                                        {% for produit in produits %}
+					<tbody>
+						<tr>
+							<td class="cart_product">
+								<a href=""><img src="{{asset('uploads/' ~produit.path)}}" height="75" width="75"></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">{{ produit.nomvet }}</a></h4>
+								<p>Web ID: {{ produit.id }} </p>
+							</td>
+							<td class="cart_price">
+								<p></p>
+							</td>
+                                                       
+							<td class="cart_total">
+								<p class="cart_total_price"></p>
+							</td>
+                                                      
+                                                         <td> {% render(controller('vetrinaBundle:Vetement:panierech')) %}</td>
+							<td class="cart_delete">
+								<a class="cart_quantity_delete" href="{{ path('supprimerech', { 'id' : produit.id }) }}"><i class="fa fa-times"></i></a>
+							</td>
+						</tr>
+                                                
+                                              {% endfor %}
+						
+						<tr>
+                                              
+							<td colspan="4">&nbsp;</td>
+							<td colspan="2">
+								<table class="table table-condensed total-result">
+									
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+                                                             
+			<div class="pull-left">
+			<a href="{{ path('affiche') }}" class="btn btn-danger">Continuer mes achats </a>
+			</div>
+			</div>
+			
+	</div>
+					
+				</div>
+			</div></section>
+                        
+                        <br/> <br/> <br/> <br/> <br/> <br/>
+    {% endblock %}
+    

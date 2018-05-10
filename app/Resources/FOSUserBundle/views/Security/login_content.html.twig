@@ -1,0 +1,39 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+  <div class="alert alert-danger" align="center"><b>{{ error.message | replace({"Bad credentials." : "Nom d'utilisateur ou mot de passe incorrecte."}) }}</b></div>
+{% endif %}
+
+<section id="form"><!--form-->
+		<div class="container">
+                    <h2 class="text-center"><font color="orange">Connexion</font></h2>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="login-form"><!--login form-->
+					   
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+
+   <label for="username">Nom d'utilisateur</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}"  required="required" />
+
+   <label for="password">Mot de passe</label>
+    <input type="password" id="password" name="_password" required="required"  />
+<span>
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" class="checkbox"  />
+    {{ 'security.login.remember_me'|trans }}
+</span>
+<br/>
+<a class="btn-link" href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié ? </a><br/>
+ 
+    <button type="submit" class="btn btn-default" id="_submit" name="_submit">Connexion</button>
+</form>
+</div>
+      </div>
+	
+	
+			</div>   
+		</div>
+	</section><!--/form-->

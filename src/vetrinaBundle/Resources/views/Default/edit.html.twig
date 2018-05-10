@@ -1,0 +1,18 @@
+{% extends 'vetrinaBundle:Default:layout.html.twig' %}
+{% block title %}
+    <title>Edit vetement</title>
+{% endblock %}
+{% block body %}
+    <section id="form">
+    <div class="container">
+        
+	    	<div class="row"> 
+<div class="col-sm-11">                    
+		<div class="login-form">    		
+                            
+                    <h2 class="title text-center"><font color="orange"><B>Modifier un vetement</B></font></h2>
+    <form action="{{ path('updatevet', { 'id' : entity.id }) }}" method="POST" {{ form_enctype(edit_form) }}>
+    {{ form(edit_form) }}
+    </form>  
+   </div> </div></div></div></section>
+{% endblock %}

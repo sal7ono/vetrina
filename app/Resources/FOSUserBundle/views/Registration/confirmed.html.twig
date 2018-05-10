@@ -1,0 +1,25 @@
+{% extends "@FOSUser/layout.html.twig" %}
+{% block title %}
+    <title>Bienvenue sur Vetrina</title>
+    {% endblock %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+    <section class="title text-center">
+       <div class="container">
+         <div class="row">
+	<div class="col-sm-12">
+    <div class="col-sm-12 padding-right">
+    <br/>   <br/>  <br/>   
+            
+    <img  src="{{asset('images/bienvenue.jpg')}}"/>
+        
+  <br/><br/>
+  <h3><font color="orange">{{ 'registration.confirmed'|trans({'%username%':user.username}) }}</font></h3>
+    </div> </div> </div> </div></section>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    {% if targetUrl %}
+    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+{% endblock fos_user_content %}

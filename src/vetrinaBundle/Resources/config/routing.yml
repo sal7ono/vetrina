@@ -1,0 +1,150 @@
+vetrina_homepage:
+  path:    /
+  defaults: { _controller: vetrinaBundle:Accueil:index }
+ 
+  
+  
+
+     
+vetrina_contact :
+    path:  /contact
+    defaults: { _controller: vetrinaBundle:Default:contact }
+   
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+    
+ajout: 
+    pattern: /ajoutvetement
+    defaults: { _controller: vetrinaBundle:Vetement:vetement }
+affiche: 
+    pattern: /categorie
+    defaults: { _controller: vetrinaBundle:Vetement:categorie }
+details: 
+    pattern: /details/{id}
+    defaults: { _controller: vetrinaBundle:Vetement:details }    
+homme: 
+    pattern: /categorie/homme
+    defaults: { _controller: vetrinaBundle:Vetement:hommecat }
+femme: 
+    pattern: /categorie/femme
+    defaults: { _controller: vetrinaBundle:Vetement:femmecat }
+enfant: 
+    pattern: /categorie/enfant
+    defaults: { _controller: vetrinaBundle:Vetement:enfantcat }
+recherche: 
+    pattern: /recherche
+    defaults: { _controller: vetrinaBundle:Vetement:rechercheTraitement }
+
+acheter: 
+    pattern: /acheter/{id}
+    defaults: { _controller: vetrinaBundle:Vetement:acheter }
+supprimer: 
+    pattern: /supprimer/{id}
+    defaults: { _controller: vetrinaBundle:Vetement:supprimer } 
+panier: 
+    pattern: /panier
+    defaults: { _controller: vetrinaBundle:Vetement:panier }  
+profile_vet: 
+    pattern: /profile/vetement
+    defaults: { _controller: vetrinaBundle:Vetement:clientvet }
+supprimervet:
+    pattern: /supprimervet/{id}
+    defaults: { _controller: vetrinaBundle:Vetement:supprimervet } 
+editvet:
+     pattern: /editvet/{id}
+     defaults: { _controller: vetrinaBundle:Vetement:edit } 
+updatevet:
+     pattern: /updatevet/{id}
+     defaults: { _controller: vetrinaBundle:Vetement:update }
+     requirements: { _method: post|put }
+marquecat:
+    pattern: /marque/{categorie}/{marque}
+    defaults: { _controller: vetrinaBundle:Accueil:marquecat }
+monpanier:
+    pattern: /monpanier
+    defaults: { _controller: vetrinaBundle:Demande:monpanier } 
+monpanierloc:
+    pattern: /monpanierloc
+    defaults: { _controller: vetrinaBundle:Demande:monpanierloc }     
+ValidationDemandeAchat:
+    pattern: /valider
+    defaults: { _controller: vetrinaBundle:Demande:ValidationDemandeAchat } 
+demandes:
+    pattern: /demandes
+    defaults: { _controller: vetrinaBundle:Demande:afficheachat } 
+etatdemande:
+    pattern: /etat/{id}/{etat}
+    defaults: { _controller: vetrinaBundle:Demande:etatdemande }
+etatdemandeloc:
+    pattern: /etatloc/{id}/{etat}
+    defaults: { _controller: vetrinaBundle:Demande:etatdemandeloc } 
+etatdemandeech:
+    pattern: /etatech/{id}/{vid}/{etat}
+    defaults: { _controller: vetrinaBundle:Demande:etatdemandeech }       
+ValidePanier:
+      pattern: /Factures/{id}
+      defaults: { _controller: vetrinaBundle:Demande:ValidePanier } 
+ValidePanierloc:
+      pattern: /Facturesloc/{id}
+      defaults: { _controller: vetrinaBundle:Demande:ValidePanierloc } 
+ValidePanierech:
+      pattern: /Facturesech/{id}/{vid}
+      defaults: { _controller: vetrinaBundle:Demande:ValidePanierech }       
+facturepdf:
+    pattern: /Factures/pdf/{id}
+    defaults: { _controller: vetrinaBundle:Demande:FactureToPDF } 
+facturepdfloc:
+    pattern: /Facturesloc/pdf/{id}
+    defaults: { _controller: vetrinaBundle:Demande:FactureToPDFloc }  
+facturepdfech:
+    pattern: /Facturesech/pdf/{id}/{vid}
+    defaults: { _controller: vetrinaBundle:Demande:FactureToPDFech }      
+louer: 
+    pattern: /louer/{id}
+    defaults: { _controller: vetrinaBundle:Vetement:louer }
+supprimerloc: 
+    pattern: /supprimerloc/{id}
+    defaults: { _controller: vetrinaBundle:Vetement:supprimerloc } 
+panierloc: 
+    pattern: /panierloc
+    defaults: { _controller: vetrinaBundle:Vetement:panierloc }  
+ValiderDemandeLocation:
+    pattern: /validerloc
+    defaults: { _controller: vetrinaBundle:Demande:ValiderDemandeLocation }
+ploc:
+    pattern: /panierlocation
+    defaults: { _controller: vetrinaBundle:Vetement:ploc }  
+echanger:
+    pattern: /echanger/{id}
+    defaults: { _controller: vetrinaBundle:Vetement:echanger }
+supprimerech: 
+    pattern: /supprimerech/{id}
+    defaults: { _controller: vetrinaBundle:Vetement:supprimerech } 
+panierech: 
+    pattern: /panierech
+    defaults: { _controller: vetrinaBundle:Vetement:panierech } 
+ValiderDemandeEchange:
+     pattern: /validerech
+     defaults: { _controller: vetrinaBundle:Demande:ValiderDemandeEchange }
+pech:
+    pattern: /panierechange
+    defaults: { _controller: vetrinaBundle:Vetement:pech }   
+chart:
+    pattern: /chart
+    defaults: { _controller: vetrinaBundle:Stats:chart }
